@@ -8,6 +8,9 @@ import lombok.Setter;
 @Getter @Setter
 public class PostingForm {
 
+    PostingForm(){
+
+    }
     public PostingForm(String imgURL, String title, String description, String information, String ingredients_name, String ingredients_quantity){
         this.imgURL = imgURL;
         this.title = title;

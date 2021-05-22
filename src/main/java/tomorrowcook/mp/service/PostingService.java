@@ -37,4 +37,5 @@ public class PostingService {
     public Posting findOne(Long postingId) {
         return postingRepository.findOne(postingId);
     }
+    public List<Posting> findUserPostings(String email){return postingRepository.findUserPosting(email);}
 }

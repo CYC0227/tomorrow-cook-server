@@ -27,6 +27,13 @@ public class PostingRepository {
                 .getResultList();
     }
 
+    public List<Posting> findUserPosting(String email) {
+        return em.createQuery("select p from Posting p where p.member = :email", Posting.class)
+                .setParameter("email", email)
+                .getResultList();
+    }
+
+
     public List<Posting> findByName(String name) {
         return em.createQuery("select m from Posting m where m.name = :name",
                 Posting.class)

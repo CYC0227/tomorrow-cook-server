@@ -9,9 +9,10 @@ import tomorrowcook.mp.domain.Member;
 import tomorrowcook.mp.domain.Posting;
 import tomorrowcook.mp.service.PostingService;
 
+import java.util.ArrayList;
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 public class PostingController {
 
@@ -19,10 +20,12 @@ public class PostingController {
 
     //추가
 
-    @GetMapping(value = "/postings")
-    public List<PostingForm> postingForms() {
-        List<Posting> postings = postingService.findPostings();
-        List<PostingForm> postingForms;
+
+    @GetMapping(value = "/postings/postingList")
+    public List<PostingForm> postingForms(@RequestParam String email) {
+
+        List<Posting> postings = postingService.findUserPostings(email);
+        List<PostingForm> postingForms = new ArrayList<>();
         PostingForm postingForm;
 
         for (Posting p : postings) {
@@ -38,6 +41,9 @@ public class PostingController {
 
             postingForms.add(postingForm);
         }
+
+//        PostingForm ex = new PostingForm();
+//        ex.setDescription("this is real");
         return postingForms;
     }
 
