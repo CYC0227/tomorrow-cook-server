@@ -22,7 +22,9 @@ public class PostingController {
 
 
     @GetMapping(value = "/postings/postingList")
-    public List<PostingForm> postingForms(@RequestParam String email) {
+    public List<PostingForm> postingForms(@RequestParam("email") String email) {
+
+        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@email = " + email);
 
         List<Posting> postings = postingService.findUserPostings(email);
         List<PostingForm> postingForms = new ArrayList<>();

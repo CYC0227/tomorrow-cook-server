@@ -28,8 +28,10 @@ public class PostingRepository {
     }
 
     public List<Posting> findUserPosting(String email) {
+        Member findMember = em.find(Member.class, email);
+
         return em.createQuery("select p from Posting p where p.member = :email", Posting.class)
-                .setParameter("email", email)
+                .setParameter("email", findMember)
                 .getResultList();
     }
 
