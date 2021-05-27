@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import tomorrowcook.mp.domain.Member;
 import tomorrowcook.mp.domain.Posting;
+import tomorrowcook.mp.service.MemberService;
 import tomorrowcook.mp.service.PostingService;
 
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PostingController {
 
+    private final MemberService memberService;
     private final PostingService postingService;
 
     //추가
@@ -23,8 +25,6 @@ public class PostingController {
 
     @GetMapping(value = "/postings/postingList")
     public List<PostingForm> postingForms(@RequestParam("email") String email) {
-
-        System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@email = " + email);
 
         List<Posting> postings = postingService.findUserPostings(email);
         List<PostingForm> postingForms = new ArrayList<>();
@@ -37,9 +37,9 @@ public class PostingController {
             String information1 = p.getInformation();
             String ingredients_name1 = p.getIngredients_name();
             String ingredients_quantity1 = p.getIngredients_quantity();
+            String weather = p.getWeather();
 
-
-            postingForm = new PostingForm(imgURL1, title1, description1, information1, ingredients_name1, ingredients_quantity1);
+            postingForm = new PostingForm(imgURL1, title1, description1, information1, ingredients_name1, ingredients_quantity1, weather);
 
             postingForms.add(postingForm);
         }
@@ -50,8 +50,8 @@ public class PostingController {
     }
 
 
-    @PostMapping(value = "/postings/new")
-    public String create(@RequestBody PostingForm form, BindingResult result) {
+    @PostMapping(value = "/postings/new")//클라이언트에서 static 변수로 가지고있는 member를 폼에 자동으로 입력 후 여기로 전달됨
+    public String create( @RequestBody PostingForm form, @RequestParam("email") String email, BindingResult result) {
 
         Posting posting = new Posting();
 
@@ -61,6 +61,10 @@ public class PostingController {
         posting.setInformation(form.getInformation());
         posting.setIngredients_name(form.getIngredients_name());
         posting.setIngredients_quantity(form.getIngredients_quantity());
+
+        Member findMember = memberService.findOne(email);
+
+        posting.setMember(findMember);
 
         postingService.join(posting);
 

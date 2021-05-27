@@ -8,16 +8,19 @@ import lombok.Setter;
 @Getter @Setter
 public class PostingForm {
 
+
     PostingForm(){
 
     }
-    public PostingForm(String imgURL, String title, String description, String information, String ingredients_name, String ingredients_quantity){
+    public PostingForm(String imgURL, String title, String description, String information, String ingredients_name,
+                       String ingredients_quantity,String weather){
         this.imgURL = imgURL;
         this.title = title;
         this.description = description;
         this.information = information;
         this.ingredients_name = ingredients_name;
         this.ingredients_quantity = ingredients_quantity;
+        this.weather = weather;
     }
 
     private String imgURL;
@@ -26,4 +29,5 @@ public class PostingForm {
     private String information;
     private String ingredients_name;
     private String ingredients_quantity;
+    private String weather;
 }
