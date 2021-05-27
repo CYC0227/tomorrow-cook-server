@@ -48,19 +48,23 @@ public class MemberController {
     @GetMapping(value = "/members/login")
     public boolean memberLogin(@RequestParam("email") String email,@RequestParam("pw") String pw ) {
 
-        System.out.println("email = " + email);
+        try{
+            Member findMember = memberService.findOne(email);
+            String email1 = findMember.getEmail();
+            String pw1 = findMember.getPw();
 
-        Member findMember = memberService.findOne(email);
-        String email1 = findMember.getEmail();
-        String pw1 = findMember.getPw();
-
-        if(email1.equals(email) && pw1.equals(pw))
-            return true;
+            if(email1.equals(email) && pw1.equals(pw))
+                return true;
+            else
+                return false;
+        }catch (NullPointerException e){
+            e.printStackTrace();
+            return false;
+        }
 
 
 //        PostingForm ex = new PostingForm();
 //        ex.setDescription("this is real");
-        return false;
     }
 
 }
