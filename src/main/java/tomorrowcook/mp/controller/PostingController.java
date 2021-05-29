@@ -5,10 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import tomorrowcook.mp.domain.Ingredients;
 import tomorrowcook.mp.domain.Member;
 import tomorrowcook.mp.domain.Posting;
-import tomorrowcook.mp.service.IngredService;
 import tomorrowcook.mp.service.MemberService;
 import tomorrowcook.mp.service.PostingService;
 
@@ -21,7 +19,6 @@ public class PostingController {
 
     private final MemberService memberService;
     private final PostingService postingService;
-    private final IngredService ingredService;
 
     //추가
 
@@ -106,7 +103,6 @@ public class PostingController {
         return postingForms;
     }
 
-    //현재의 포스팅 폼과 맞지 않음. 수정필요
     @PostMapping(value = "/postings/new")//클라이언트에서 static 변수로 가지고있는 member를 폼에 자동으로 입력 후 여기로 전달됨
     public String create( @RequestBody PostingForm form, @RequestParam("email") String email, BindingResult result) {
 
@@ -116,15 +112,8 @@ public class PostingController {
         posting.setImgURL(form.getImgURL());
         posting.setDescription(form.getDescription());
         posting.setInformation(form.getInformation());
-
-//        posting.setIngredients_name(form.getIngredients_name());
-//        posting.setIngredients_quantity(form.getIngredients_quantity());
-
-        Ingredients ingredients = new Ingredients();
-        ingredients.setIngredients_name(form.getIngredients_name());
-        ingredients.setIngredients_quantity(form.getIngredients_quantity(););
-
-
+        posting.setIngredients_name(form.getIngredients_name());
+        posting.setIngredients_quantity(form.getIngredients_quantity());
 
         Member findMember = memberService.findOne(email);
 
