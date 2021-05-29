@@ -20,6 +20,9 @@ public class Posting {
     private String ingredients_name;
     private String ingredients_quantity;
     private String weather;
+    private String anniversary;
+    private String country;
+    private String videoURL;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")

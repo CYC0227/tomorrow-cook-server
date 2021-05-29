@@ -38,4 +38,8 @@ public class PostingService {
         return postingRepository.findOne(postingId);
     }
     public List<Posting> findUserPostings(String email){return postingRepository.findUserPosting(email);}
+
+    public List<Posting> findByCountry(String country){return postingRepository.findByCountry(country);}
+    public List<Posting> findByAnniversary(String anniversary){return postingRepository.findByAnniversary(anniversary);}
+
 }

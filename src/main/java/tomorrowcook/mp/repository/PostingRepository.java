@@ -35,6 +35,17 @@ public class PostingRepository {
                 .getResultList();
     }
 
+    public List<Posting> findByCountry (String country) {
+        return em.createQuery("select p from Posting p where country = :country", Posting.class)
+                .setParameter("country", country)
+                .getResultList();
+    }
+
+    public List<Posting> findByAnniversary (String anniversary) {
+        return em.createQuery("select p from Posting p where anniversary = :anniversary", Posting.class)
+                .setParameter("anniversary", anniversary)
+                .getResultList();
+    }
 
     public List<Posting> findByName(String name) {
         return em.createQuery("select m from Posting m where m.name = :name",

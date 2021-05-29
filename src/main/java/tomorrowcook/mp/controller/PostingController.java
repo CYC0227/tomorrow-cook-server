@@ -37,19 +37,73 @@ public class PostingController {
             String information1 = p.getInformation();
             String ingredients_name1 = p.getIngredients_name();
             String ingredients_quantity1 = p.getIngredients_quantity();
-            String weather = p.getWeather();
+            String anniversary = p.getAnniversary();
+            String country = p.getCountry();
+            String videoURL = p.getVideoURL();
 
-            postingForm = new PostingForm(imgURL1, title1, description1, information1, ingredients_name1, ingredients_quantity1, weather);
+            postingForm = new PostingForm(imgURL1, title1, description1, information1, ingredients_name1, ingredients_quantity1, anniversary, country, videoURL);
 
             postingForms.add(postingForm);
         }
 
-//        PostingForm ex = new PostingForm();
-//        ex.setDescription("this is real");
         return postingForms;
     }
 
 
+    @GetMapping(value = "/postings/postingList/anniv")
+    public List<PostingForm> postingsWithAnniv(@RequestParam("anniv") String anniv) {
+
+        List<Posting> postings = postingService.findByAnniversary(anniv);
+        List<PostingForm> postingForms = new ArrayList<>();
+        PostingForm postingForm;
+
+        for (Posting p : postings) {
+            String imgURL1 = p.getImgURL();
+            String title1 = p.getTitle();
+            String description1 = p.getDescription();
+            String information1 = p.getInformation();
+            String ingredients_name1 = p.getIngredients_name();
+            String ingredients_quantity1 = p.getIngredients_quantity();
+            String anniversary = p.getAnniversary();
+            String country = p.getCountry();
+            String videoURL = p.getVideoURL();
+
+            postingForm = new PostingForm(imgURL1, title1, description1, information1, ingredients_name1, ingredients_quantity1, anniversary, country, videoURL);
+
+            postingForms.add(postingForm);
+        }
+
+        return postingForms;
+    }
+
+
+    @GetMapping(value = "/postings/postingList/country")
+    public List<PostingForm> postingsWithCountry(@RequestParam("country") String country) {
+
+        List<Posting> postings = postingService.findByCountry(country);
+        List<PostingForm> postingForms = new ArrayList<>();
+        PostingForm postingForm;
+
+        for (Posting p : postings) {
+            String imgURL1 = p.getImgURL();
+            String title1 = p.getTitle();
+            String description1 = p.getDescription();
+            String information1 = p.getInformation();
+            String ingredients_name1 = p.getIngredients_name();
+            String ingredients_quantity1 = p.getIngredients_quantity();
+            String anniversary = p.getAnniversary();
+            String country1 = p.getCountry();
+            String videoURL = p.getVideoURL();
+
+            postingForm = new PostingForm(imgURL1, title1, description1, information1, ingredients_name1, ingredients_quantity1, anniversary, country1, videoURL);
+
+            postingForms.add(postingForm);
+        }
+
+        return postingForms;
+    }
+
+    //현재의 포스팅 폼과 맞지 않음. 수정필요
     @PostMapping(value = "/postings/new")//클라이언트에서 static 변수로 가지고있는 member를 폼에 자동으로 입력 후 여기로 전달됨
     public String create( @RequestBody PostingForm form, @RequestParam("email") String email, BindingResult result) {
 
