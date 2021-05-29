@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
+
 
 @Entity
 @Getter @Setter
@@ -17,8 +19,10 @@ public class Posting {
     private String imgURL;
     private String description;
     private String information;
-    private String ingredients_name;
-    private String ingredients_quantity;
+
+    @OneToMany(mappedBy = "posting", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Ingredients> ingredients;
+
     private String weather;
     private String anniversary;
     private String country;

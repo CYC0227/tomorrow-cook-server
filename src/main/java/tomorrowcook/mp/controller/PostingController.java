@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import tomorrowcook.mp.domain.Ingredients;
 import tomorrowcook.mp.domain.Member;
 import tomorrowcook.mp.domain.Posting;
+import tomorrowcook.mp.service.IngredService;
 import tomorrowcook.mp.service.MemberService;
 import tomorrowcook.mp.service.PostingService;
 
@@ -19,6 +21,7 @@ public class PostingController {
 
     private final MemberService memberService;
     private final PostingService postingService;
+    private final IngredService ingredService;
 
     //추가
 
@@ -113,8 +116,15 @@ public class PostingController {
         posting.setImgURL(form.getImgURL());
         posting.setDescription(form.getDescription());
         posting.setInformation(form.getInformation());
-        posting.setIngredients_name(form.getIngredients_name());
-        posting.setIngredients_quantity(form.getIngredients_quantity());
+
+//        posting.setIngredients_name(form.getIngredients_name());
+//        posting.setIngredients_quantity(form.getIngredients_quantity());
+
+        Ingredients ingredients = new Ingredients();
+        ingredients.setIngredients_name(form.getIngredients_name());
+        ingredients.setIngredients_quantity(form.getIngredients_quantity(););
+
+
 
         Member findMember = memberService.findOne(email);
 

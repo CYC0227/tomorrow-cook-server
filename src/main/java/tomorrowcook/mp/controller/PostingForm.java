@@ -21,7 +21,7 @@ public class PostingForm {
         this.ingredients_name = ingredients_name;
         this.ingredients_quantity = ingredients_quantity;
         this.anniversary = anniversary;
-        this. country = country;
+        this.country = country;
         this.videoURL = videoURL;
     }
 
