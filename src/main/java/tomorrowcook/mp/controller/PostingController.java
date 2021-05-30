@@ -35,13 +35,29 @@ public class PostingController {
             String title1 = p.getTitle();
             String description1 = p.getDescription();
             String information1 = p.getInformation();
+
             String ingredients_name1 = p.getIngredients_name();
+            String ingredients_name2 = p.getIngredients_name2();
+            String ingredients_name3 = p.getIngredients_name3();
+            String ingredients_name4 = p.getIngredients_name4();
+            String ingredients_name5 = p.getIngredients_name5();
+
             String ingredients_quantity1 = p.getIngredients_quantity();
+            String ingredients_quantity2 = p.getIngredients_quantity2();
+            String ingredients_quantity3 = p.getIngredients_quantity3();
+            String ingredients_quantity4 = p.getIngredients_quantity4();
+            String ingredients_quantity5 = p.getIngredients_quantity5();
+
             String anniversary = p.getAnniversary();
             String country = p.getCountry();
             String videoURL = p.getVideoURL();
 
-            postingForm = new PostingForm(imgURL1, title1, description1, information1, ingredients_name1, ingredients_quantity1, anniversary, country, videoURL);
+            postingForm = new PostingForm(imgURL1, title1, description1, information1, ingredients_name1, ingredients_quantity1,
+                    ingredients_name2,ingredients_quantity2,
+                    ingredients_name3,ingredients_quantity3,
+                    ingredients_name4,ingredients_quantity4,
+                    ingredients_name5,ingredients_quantity5,
+                    anniversary, country, videoURL);
 
             postingForms.add(postingForm);
         }
@@ -62,13 +78,29 @@ public class PostingController {
             String title1 = p.getTitle();
             String description1 = p.getDescription();
             String information1 = p.getInformation();
+
             String ingredients_name1 = p.getIngredients_name();
+            String ingredients_name2 = p.getIngredients_name2();
+            String ingredients_name3 = p.getIngredients_name3();
+            String ingredients_name4 = p.getIngredients_name4();
+            String ingredients_name5 = p.getIngredients_name5();
+
             String ingredients_quantity1 = p.getIngredients_quantity();
+            String ingredients_quantity2 = p.getIngredients_quantity2();
+            String ingredients_quantity3 = p.getIngredients_quantity3();
+            String ingredients_quantity4 = p.getIngredients_quantity4();
+            String ingredients_quantity5 = p.getIngredients_quantity5();
+
             String anniversary = p.getAnniversary();
             String country = p.getCountry();
             String videoURL = p.getVideoURL();
 
-            postingForm = new PostingForm(imgURL1, title1, description1, information1, ingredients_name1, ingredients_quantity1, anniversary, country, videoURL);
+            postingForm = new PostingForm(imgURL1, title1, description1, information1, ingredients_name1, ingredients_quantity1,
+                    ingredients_name2,ingredients_quantity2,
+                    ingredients_name3,ingredients_quantity3,
+                    ingredients_name4,ingredients_quantity4,
+                    ingredients_name5,ingredients_quantity5,
+                    anniversary, country, videoURL);
 
             postingForms.add(postingForm);
         }
@@ -89,13 +121,29 @@ public class PostingController {
             String title1 = p.getTitle();
             String description1 = p.getDescription();
             String information1 = p.getInformation();
+
             String ingredients_name1 = p.getIngredients_name();
+            String ingredients_name2 = p.getIngredients_name2();
+            String ingredients_name3 = p.getIngredients_name3();
+            String ingredients_name4 = p.getIngredients_name4();
+            String ingredients_name5 = p.getIngredients_name5();
+
             String ingredients_quantity1 = p.getIngredients_quantity();
+            String ingredients_quantity2 = p.getIngredients_quantity2();
+            String ingredients_quantity3 = p.getIngredients_quantity3();
+            String ingredients_quantity4 = p.getIngredients_quantity4();
+            String ingredients_quantity5 = p.getIngredients_quantity5();
+
             String anniversary = p.getAnniversary();
             String country1 = p.getCountry();
             String videoURL = p.getVideoURL();
 
-            postingForm = new PostingForm(imgURL1, title1, description1, information1, ingredients_name1, ingredients_quantity1, anniversary, country1, videoURL);
+            postingForm = new PostingForm(imgURL1, title1, description1, information1, ingredients_name1, ingredients_quantity1,
+                    ingredients_name2,ingredients_quantity2,
+                    ingredients_name3,ingredients_quantity3,
+                    ingredients_name4,ingredients_quantity4,
+                    ingredients_name5,ingredients_quantity5,
+                    anniversary, country1, videoURL);
 
             postingForms.add(postingForm);
         }

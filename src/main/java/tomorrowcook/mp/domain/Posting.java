@@ -19,6 +19,14 @@ public class Posting {
     private String information;
     private String ingredients_name;
     private String ingredients_quantity;
+    private String ingredients_name2;
+    private String ingredients_quantity2;
+    private String ingredients_name3;
+    private String ingredients_quantity3;
+    private String ingredients_name4;
+    private String ingredients_quantity4;
+    private String ingredients_name5;
+    private String ingredients_quantity5;
     private String weather;
     private String anniversary;
     private String country;

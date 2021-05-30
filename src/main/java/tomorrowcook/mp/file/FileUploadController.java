@@ -35,7 +35,7 @@ public class FileUploadController {
         return "Hello~ File Upload Test.";
     }
 
-    @PostMapping("/uploadFile")
+    @PostMapping(value = "/uploadFile")
     public FileUploadResponse uploadFile(@RequestParam("file") MultipartFile file) {
         String fileName = service.storeFile(file);
 
@@ -57,6 +57,9 @@ public class FileUploadController {
 
     @GetMapping("/downloadFile/{fileName:.+}")
     public ResponseEntity<Resource> downloadFile(@PathVariable String fileName, HttpServletRequest request){
+
+        System.out.println("((((((((((((((((((((((((((((((((((((((((((");
+
         // Load file as Resource
         Resource resource = service.loadFileAsResource(fileName);
 
