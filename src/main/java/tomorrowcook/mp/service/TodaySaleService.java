@@ -27,4 +27,6 @@ public class TodaySaleService {
         return todaySaleRepository.findAll();
     }
 
+    public List<TodaySale> findByRegion(String region){return todaySaleRepository.findByRegion(region);}
+
 }

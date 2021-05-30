@@ -2,6 +2,7 @@ package tomorrowcook.mp.repository;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
+import tomorrowcook.mp.domain.Posting;
 import tomorrowcook.mp.domain.TodaySale;
 
 import javax.persistence.EntityManager;
@@ -23,6 +24,12 @@ public class TodaySaleRepository {
 
     public List<TodaySale> findAll() {
         return em.createQuery("select t from TodaySale t", TodaySale.class)
+                .getResultList();
+    }
+
+    public List<TodaySale> findByRegion (String region) {
+        return em.createQuery("select t from TodaySale t where address_around = :address_around", TodaySale.class)
+                .setParameter("address_around", region)
                 .getResultList();
     }
 

@@ -15,4 +15,6 @@ public class TodaySale {
     private Long id;
     private String info;
     private String address;
+    private String address_around;
+
 }

@@ -29,8 +29,30 @@ public class TodaySaleController {
         for (TodaySale p : todaySales) {
             String address = p.getAddress();
             String info = p.getInfo();
+            String address_around = p.getAddress_around();
 
-            todaySaleForm = new TodaySaleForm(info, address);
+            todaySaleForm = new TodaySaleForm(info, address,address_around);
+
+            todaySaleForms.add(todaySaleForm);
+        }
+
+        return todaySaleForms;
+    }
+
+
+    @GetMapping(value = "/todaysales/around")
+    public List<TodaySaleForm> findByRegion(@RequestParam("region") String region) {
+
+        List<TodaySale> todaySales = todaySaleService.findByRegion(region);
+        List<TodaySaleForm> todaySaleForms = new ArrayList<>();
+        TodaySaleForm todaySaleForm;
+
+        for (TodaySale p : todaySales) {
+            String address = p.getAddress();
+            String info = p.getInfo();
+            String address_around = p.getAddress_around();
+
+            todaySaleForm = new TodaySaleForm(info, address,address_around);
 
             todaySaleForms.add(todaySaleForm);
         }
