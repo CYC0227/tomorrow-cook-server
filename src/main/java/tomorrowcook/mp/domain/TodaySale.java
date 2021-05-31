@@ -16,5 +16,7 @@ public class TodaySale {
     private String info;
     private String address;
     private String address_around;
+    private String store_address;
+
 
 }

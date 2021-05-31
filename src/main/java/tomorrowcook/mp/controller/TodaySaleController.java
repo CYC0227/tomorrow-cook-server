@@ -30,8 +30,9 @@ public class TodaySaleController {
             String address = p.getAddress();
             String info = p.getInfo();
             String address_around = p.getAddress_around();
+            String store_address = p.getStore_address();
 
-            todaySaleForm = new TodaySaleForm(info, address,address_around);
+            todaySaleForm = new TodaySaleForm(info, address,address_around, store_address);
 
             todaySaleForms.add(todaySaleForm);
         }
@@ -51,8 +52,9 @@ public class TodaySaleController {
             String address = p.getAddress();
             String info = p.getInfo();
             String address_around = p.getAddress_around();
+            String store_address = p.getStore_address();
 
-            todaySaleForm = new TodaySaleForm(info, address,address_around);
+            todaySaleForm = new TodaySaleForm(info, address,address_around,store_address);
 
             todaySaleForms.add(todaySaleForm);
         }
@@ -67,6 +69,8 @@ public class TodaySaleController {
 
         todaySale.setAddress(form.getAddress());
         todaySale.setInfo(form.getInfo());
+        todaySale.setAddress_around(form.getAddress_around());
+        todaySale.setStore_address(form.getStore_address());
 
         todaySaleService.join(todaySale);
 
